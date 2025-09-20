@@ -1,0 +1,23 @@
+from typing import List
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        strs_lens = [len(s) for s in strs]
+        common_prefix = ""
+
+        if min(strs_lens) == 0:
+            return common_prefix
+        
+        for i in range(min(strs_lens)):
+            current_syms = [s[i] for s in strs]
+            if len(set(current_syms)) != 1:
+                break          
+            common_prefix += current_syms[0]
+            
+        return common_prefix
+    
+sol = Solution()
+
+test_cases = [["flower", "flow", "flight"], ["dog", "racecar", "car"]]
+for case in test_cases:
+    print(sol.longestCommonPrefix(case))
