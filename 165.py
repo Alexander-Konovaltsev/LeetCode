@@ -1,3 +1,7 @@
+from utils.test import test
+import os
+
+
 class Solution:
     def compareVersion(self, version1: str, version2: str) -> int:
         ver1 = list(map(int, version1.split('.')))
@@ -23,9 +27,12 @@ class Solution:
         
         lst.extend([0] * (length - len(lst)))
 
-sol = Solution()
+
+solution = Solution()
 
 test_cases = [["1.2", "1.10"], ["1.01", "1.001"], ["1.0", "1.0.0.0"]]
+test_results = [solution.compareVersion(case[0], case[1]) for case in test_cases]
 
-for case in test_cases:
-    print(sol.compareVersion(case[0], case[1]))
+results = [-1, 0, 0]
+
+test(os.path.basename(__file__), test_results, results)

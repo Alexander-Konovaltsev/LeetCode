@@ -1,3 +1,7 @@
+from utils.test import test
+import os
+
+
 class Solution:
     roman_num = {
                 'I': 1,
@@ -39,9 +43,11 @@ class Solution:
         return sum
 
     
-sol = Solution()
+solution = Solution()
 
 test_cases = ["III", "LVIII", "MCMXCIV"]
+test_results = [solution.romanToInt(case) for case in test_cases]
 
-for case in test_cases:
-    print(sol.romanToInt(case))
+results = [3, 58, 1994]
+
+test(os.path.basename(__file__), test_results, results)

@@ -1,4 +1,7 @@
 from typing import List
+from utils.test import test
+import os
+
 
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
@@ -15,9 +18,12 @@ class Solution:
 
         return nums_with_max_frequency * max_frequency
     
-sol = Solution() 
+
+solution = Solution() 
 
 test_cases = [[1,2,2,3,1,4], [1,2,3,4,5]]
+test_results = [solution.maxFrequencyElements(case) for case in test_cases]
 
-for case in test_cases:
-    print(sol.maxFrequencyElements(case))
+results = [4, 5]
+
+test(os.path.basename(__file__), test_results, results)

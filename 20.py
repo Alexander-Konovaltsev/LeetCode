@@ -1,3 +1,7 @@
+from utils.test import test
+import os
+
+
 class Solution:
     def isValid(self, s: str) -> bool:
         if len(s) % 2 != 0:
@@ -16,9 +20,12 @@ class Solution:
         
         return not stack
 
-sol = Solution()
+
+solution = Solution()
 
 test_cases = ["()", "()[]{}", "(]", "([])", "([)]"]
+test_results = [solution.isValid(case) for case in test_cases]
 
-for case in test_cases:
-    print(sol.isValid(case))
+results = [True, True, False, True, False]
+
+test(os.path.basename(__file__), test_results, results)

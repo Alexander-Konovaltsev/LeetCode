@@ -1,4 +1,7 @@
 from typing import List
+from utils.test import test
+import os
+
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -16,8 +19,12 @@ class Solution:
             
         return common_prefix
     
-sol = Solution()
+
+solution = Solution()
 
 test_cases = [["flower", "flow", "flight"], ["dog", "racecar", "car"]]
-for case in test_cases:
-    print(sol.longestCommonPrefix(case))
+test_results = [solution.longestCommonPrefix(case) for case in test_cases]
+
+results = ["fl", ""]
+
+test(os.path.basename(__file__), test_results, results)
